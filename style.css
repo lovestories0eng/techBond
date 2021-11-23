@@ -1,0 +1,395 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    background-color: #f3f5f7;
+    position: relative;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    display: block;
+    text-decoration: none;
+    color: black;
+}
+
+.fa {
+    display: block;
+}
+
+table.pure-table caption {
+    padding-top: 3px;
+    padding-bottom: 10px;
+}
+
+table caption a {
+    float: right;
+    font-size: 24px;
+    /* margin-bottom: 30px; */
+}
+
+.navbar {
+    overflow: hidden;
+    background-color: rgb(30, 41, 61);
+}
+
+.logo {
+    position: relative;
+    width: 113.39px;
+    height: 80px;
+    float: left;
+    background-color: rgb(36, 29, 29);
+}
+
+.logo img {
+    float: left;
+    position: absolute;
+    left: 30%;
+    top: 20%;
+}
+
+.nav {
+    margin-left: 60px;
+    float: left;
+}
+
+.nav ul li {
+    float: left;
+    margin: 0 15px;
+}
+
+.nav ul li a {
+    display: inline-block;
+    height: 80px;
+    padding: 0 10px;
+    line-height: 80px;
+    font-size: 18px;
+    color: #ad9e9e;
+}
+
+.nav ul li a:hover {
+    color: #00a4ff;
+}
+
+.search {
+    float: left;
+    width: 412px;
+    height: 42px;
+    margin-top: 19px;
+    margin-left: 70px;
+}
+
+.search input {
+    float: left;
+    width: 345px;
+    height: 42px;
+    border-right: none;
+    color: #bfbfbf;
+    font-style: 14px;
+    padding-left: 15px;
+    background-color: rgb(58, 71, 96);
+}
+
+.user {
+    float: right;
+    line-height: 42px;
+    margin-top: 19px;
+    margin-right: 30px;
+    font-size: 14px;
+    color: rgb(86, 98, 119);
+}
+
+.user img {
+    vertical-align: middle;
+}
+
+.main-content {
+    position: relative;
+}
+
+.left-menu {
+    position: absolute;
+    height: 100%;
+    text-align: center;
+    float: left;
+    background: rgb(30, 41, 61);
+}
+
+.left-menu ul {
+    background: rgb(30, 41, 61);
+}
+
+.left-menu ul li {
+    height: 82px;
+    line-height: 45px;
+}
+
+.left-menu ul li a {
+    padding: 0 20px;
+    padding-top: 10px;
+}
+
+.left-menu ul li a:hover {
+    color: #fff !important;
+    background-color: red;
+}
+
+.left-menu ul li a {
+    font-size: 14px;
+    color: rgb(116, 127, 149);
+}
+
+.left-menu ul li i {
+    display: block;
+}
+
+.content {
+    position: relative;
+    left: 114px;
+    overflow: hidden;
+}
+
+.content h2 {
+    margin-top: 30px;
+    margin-left: 30px;
+}
+
+.content .latest-info {
+    margin-top: 30px;
+    margin-left: 25px;
+    float: left;
+    padding: 15px;
+    width: 290px;
+    height: 198px;
+    background-color: #fff;
+}
+
+.content .latest-info h2 {
+    margin: 0;
+    text-align: center;
+    height: 45px;
+    line-height: 45px;
+}
+
+.content .latest-info .profit-info {
+    width: 320px;
+    height: 98px;
+    margin-top: 15px;
+    margin-left: -15px;
+    background-color: rgb(56, 164, 214);
+}
+
+.content .latest-info .profit-info p {
+    margin: 15px;
+    padding-top: 10px;
+    font-size: 18px;
+    color: #fff;
+    text-align: center;
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+.content .latest-info .profit-info h1 {
+    color: #fff;
+    margin: 5px;
+    text-align: center;
+}
+
+.content .latest-info .profit-info .fa {
+    float: left;
+    padding-left: 15px;
+    font-size: 42px;
+}
+
+.content .latest-info .profit-info h4 {
+    line-height: 50px;
+    padding-right: 10px;
+    float: right;
+}
+
+#situation {
+    display: inline-block;
+    position: relative;
+    margin-top: 30px;
+    left: 125px;
+    width: 600px;
+    height: 500px;
+}
+
+#k-line {
+    display: inline-block;
+    /* position: relative;
+    left: 100px; */
+    margin-left: 100px;
+    margin-top: 30px;
+    width: 800px;
+    height: 500px;
+}
+
+#hist {
+    display: inline-block;
+    margin-top: 50px;
+    width: 600px;
+    height: 200px;
+    border: solid 1px #B3B3DC;
+    position: relative;
+    left: 125px;
+}
+
+.black_overlay {
+    display: none;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    z-index: 1001;
+    -moz-opacity: 0.8;
+    opacity: .80;
+    filter: alpha(opacity=88);
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+td,
+th {
+    padding: 0;
+}
+
+.pure-table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    empty-cells: show;
+    border: 1px solid #cbcbcb;
+}
+
+.pure-table caption {
+    color: #000;
+    font: italic 85%/1 arial, sans-serif;
+    padding: 1em 0;
+    text-align: center;
+}
+
+.pure-table td,
+.pure-table th {
+    border-left: 1px solid #cbcbcb;
+    border-width: 0 0 0 1px;
+    font-size: inherit;
+    margin: 0;
+    /* overflow: visible; */
+    padding: .5em 1em;
+}
+
+.pure-table thead {
+    background-color: #e0e0e0;
+    color: #000;
+    text-align: left;
+    vertical-align: bottom;
+}
+
+.pure-table td {
+    background-color: transparent;
+}
+
+#general-picture {
+    position: relative;
+    display: inline-block;
+    left: 184px;
+}
+
+#general-picture .table-head {
+    position: relative;
+    display: inline-block;
+    margin-top: 15px;
+    margin-left: 20px;
+}
+
+#general-picture h3 {
+    display: inline-block;
+}
+
+#general-picture input {
+    width: 50px;
+}
+
+#general-picture table {
+    margin: 5px 20px;
+}
+
+#ssebond-day {
+    position: relative;
+    display: inline-block;
+    left: 184px;
+}
+
+#ssebond-day .table-head {
+    position: relative;
+    display: inline-block;
+    margin-top: 15px;
+    margin-left: 20px;
+}
+
+#ssebond-day h3 {
+    display: inline-block;
+}
+
+#ssebond-day input {
+    width: 50px;
+}
+
+#ssebond-day table {
+    margin: 5px 20px;
+}
+
+#ssedeal-day {
+    margin-top: 30px;
+    position: relative;
+    display: inline-block;
+    left: 184px;
+}
+
+#ssedeal-day .table-head {
+    position: relative;
+    display: inline-block;
+    margin-top: 15px;
+    margin-left: 20px;
+}
+
+#ssedeal-day h3 {
+    display: inline-block;
+}
+
+#ssedeal-day input {
+    width: 50px;
+}
+
+#ssedeal-day table {
+    margin: 5px 20px;
+}
+
+#moiton-index {
+    display: inline-block;
+    /* position: relative;
+    left: 100px; */
+    margin-left: 100px;
+    margin-top: 30px;
+    width: 800px;
+    height: 500px;
+}

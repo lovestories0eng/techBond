@@ -1,0 +1,163 @@
+<!-- http://mis.sem.tsinghua.edu.cn/ueditor/jsp/upload/file/20180515/1526355238452081874.pdf -->
+<!-- https://www.akshare.xyz/data/bond/bond.html -->
+<!-- https://zhidao.baidu.com/question/387896363.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="form-style.css"> -->
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="predict-style.css">
+    <script src="JS/echarts.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=AM_HTMLorMML-full"></script>
+    <title>金融数据分析系统</title>
+    <script>
+        function prevent_submit(event) {
+            event.preventDefault();
+        }
+    </script>
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="logo">
+            <img src="images/logo.png" alt="">
+        </div>
+        <div class="nav">
+            <ul>
+                <li>
+                    <a href="#">首页</a>
+                </li>
+                <li>
+                    <a href="#">资讯</a>
+                </li>
+                <li>
+                    <a href="https://www.pshtrophycloud.com" target="_blank">我的博客</a>
+                </li>
+            </ul>
+        </div>
+        <div class="search">
+            <input type="text" value="请输入关键字">
+        </div>
+        <div class="user">
+            <img src="images/user.png" alt=""> Administator
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="left-menu">
+            <ul>
+                <li>
+                    <a href="index.html">
+                        <i class="fa fa-home fa-2x">
+                        </i> Dashborad
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-smile-o fa-2x">
+                        </i> 历史数据 </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-list fa-2x">
+                    </i> 数据可视化
+                    </a>
+                </li>
+                <li>
+                    <a href="predict.html">
+                        <i class="fa fa-table fa-2x">
+                    </i> 金融知识 </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-envelope fa-2x">
+                    </i> 参考网址 </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-folder-open-o fa-2x">
+                    </i> 市场概况 </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-bar-chart-o fa-2x">
+                    </i> 债券公告 </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-camera-retro fa-2x">
+                    </i> 指数走势 </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-check-square fa-2x">
+                    </i> 收益率曲线 </a>
+                </li>
+            </ul>
+        </div>
+        <div class="bond-predict">
+            <h2>
+                投资估价模型
+            </h2>
+            <div class="formula">
+                <label>债券估值基本模型：</label><span>`V_d = I_1/(1+r_d)^1 + I_2/(1+r_d)^2 + ... + I_n/(1+r_d)^n + M/(1+r_d)^n`</span>
+            </div>
+            <div class="formula">
+                <label>平息债券估值模型：</label><span>`V_d = \sum_{t=1}^{mn}\frac{I//m}{(1+r_d)^{\frac{t}{m}}} + \frac{M}{(1+r_d)^n}`</span>
+            </div>
+            <div class="formula">
+                <label>纯贴现债券估值模型：</label><span>`V_d = \frac{F}{(1 + r_d)^n}`</span>
+            </div>
+
+            <h2>债券期望回报率</h2>
+            <div class="formula">
+                <label>期望报酬率：</label> <br> <span>`P_0 = I \times (P//A, r_d, n) + M \times (P//F, r_d, n)`</span>
+                <p>符号说明：</p>
+                <p>
+                    `P_0`：债券价格 <br> `I`：每年的利息 <br> `M`：面值 <br> `n`：到期前的年数 <br> `r_d`：年折现率 <br>
+                </p>
+            </div>
+
+        </div>
+        <div class="data-cal">
+            <div class="data-input">
+                <div class="flow-bond">
+                    <h2>
+                        流通债券的估值
+                    </h2>
+                    <p>
+                        流通债券是指已发行并在二级市场上流通的债券。<br> 他们不同于新发行债券，已经在市场上流通了一段时间，<br> 在估值时需要考虑现在至下一次利息支付的时间因素。
+                    </p>
+                </div>
+                <form action="predict.html" method="post">
+
+                    发行日期：
+                    <input type="text" placeholder="年" name="start-year" id="start-year" /> <input type="text" placeholder="月" name="start-month" id="start-month" /> <br /> 到期日期：
+                    <input type="text" placeholder="年" name="end-year" id="end-year" /> <input type="text" placeholder="月" name="end-month" id="end-month" /> <br/> 票面利率：
+                    <input type="text" name="nominal-interest" id="nominal-interest" /> <br /> 市场利率：
+                    <input type="text" name="market-interest" id="market-interest" /> <br /> 债券面值：
+                    <input type="text" name="nominal-value" id="nominal-value" /> <br /> 付息频率：
+                    <input type="text" name="freq" id="freq" /> <br />
+                    <input type="submit" value="提交所填" id="bond-info" />
+                    <!-- <button id="bond-info">提交所填</button> -->
+                    <input type="reset" value="重置所填" />
+
+                </form>
+            </div>
+            <div id="netvalue"></div>
+        </div>
+
+    </div>
+
+</body>
+
+<script src="JS/calculator.js"></script>
+
+</html>

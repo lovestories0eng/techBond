@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="form-style.css"> -->
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.css">
+    <script crossorigin="anonymous" src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.1/axios.js"></script>
+    <script src="JS/echarts.js"></script>
+    <title>金融数据分析系统</title>
+</head>
+
+<body>
+    <div id="fade" class="black_overlay"></div>
+    <div class="pure-table white-content" id="bond-day">
+
+    </div>
+    <div class="navbar">
+        <div class="logo">
+            <img src="images/logo.png" alt="">
+        </div>
+        <div class="nav">
+            <ul>
+                <li>
+                    <a href="#">首页</a>
+                </li>
+                <li>
+                    <a href="#">资讯</a>
+                </li>
+                <li>
+                    <a href="https://www.pshtrophycloud.com" target="_blank">我的博客</a>
+                </li>
+            </ul>
+        </div>
+        <div class="search">
+            <input type="text" value="请输入关键字">
+        </div>
+        <div class="user">
+            <img src="images/user.png" alt=""> Administator
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="left-menu">
+            <ul>
+                <li>
+                    <a href="index.html">
+                        <i class="fa fa-home fa-2x">
+                        </i> Dashborad
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-smile-o fa-2x">
+                        </i> 历史数据 </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-list fa-2x">
+                    </i> 数据可视化
+                    </a>
+                </li>
+                <li>
+                    <a href="predict.html">
+                        <i class="fa fa-table fa-2x">
+                    </i> 金融知识 </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-envelope fa-2x">
+                    </i> 参考网址 </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-folder-open-o fa-2x">
+                    </i> 市场概况 </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-bar-chart-o fa-2x">
+                    </i> 债券公告 </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-camera-retro fa-2x">
+                    </i> 指数走势 </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-check-square fa-2x">
+                    </i> 收益率曲线 </a>
+                </li>
+            </ul>
+        </div>
+        <div class="content">
+            <h2>金融数据分析系统</h2>
+        </div>
+        <div id="situation"></div>
+        <div id="k-line"></div>
+
+        <div class="pure-table" id="general-picture">
+            <div class="table head">
+                <h3>
+                    市场总貌
+                </h3>
+                <br>
+                <input type="text" placeholder="年" id="general-picture-input-year">
+                <input type="text" placeholder="月" id="general-picture-input-month">
+                <input type="text" placeholder="日" id="general-picture-input-day">
+                <button id="general-picture-button">查询</button>
+            </div>
+            <table></table>
+        </div>
+
+        <div class="pure-table" id="ssebond-day">
+            <div class="table-head">
+                <h3>
+                    深圳证券交易所-市场总貌
+                </h3>
+                <br>
+                <input type="text" placeholder="年" id="ssebond-day-input-year">
+                <input type="text" placeholder="月" id="ssebond-day-input-month">
+                <input type="text" placeholder="日" id="ssebond-day-input-day">
+                <button id="ssebond-day-button">查询</button>
+            </div>
+            <table></table>
+        </div>
+
+        <div class="pure-table" id="ssedeal-day">
+            <div class="table-head">
+                <h3>
+                    上海证券交易所-每日概况
+                </h3>
+                <br>
+                <input type="text" placeholder="年" id="ssedeal-day-input-year">
+                <input type="text" placeholder="月" id="ssedeal-day-input-month">
+                <input type="text" placeholder="日" id="ssedeal-day-input-day">
+                <button id="ssedeal-day-button">查询</button>
+            </div>
+            <table></table>
+        </div>
+        <div id="motion-index">
+
+        </div>
+
+    </div>
+
+    <script src="JS/info.js">
+    </script>
+
+    <script type="text/javascript" src="JS/k-line.js">
+    </script>
+
+</body>
+
+<script>
+    const click = document.querySelectorAll('body > div.main-content > div.content > div.latest-info > div.profit-info > h4 > a');
+    const ul = document.querySelectorAll('body > div.main-content > div.left-menu > ul')[0];
+    let logo = document.getElementsByClassName('logo')[0];
+    let doc = document.documentElement;
+    let init_height = doc.scrollHeight;
+    for (let i = 0; i < click.length; i++) {
+        click[i].onclick = function() {
+            logo_height = logo.offsetHeight;
+            document.getElementById('bond-day').style.display = 'block';
+            document.body.style.height = doc.scrollHeight + 'px';
+            ul.style.height = doc.scrollHeight - logo_height + 'px';
+            document.getElementById('fade').style.display = 'block';
+        }
+    }
+
+    const close = document.getElementsByClassName("fa fa-times");
+    for (let i = 0; i < close.length; i++) {
+        close[i].onclick = function() {
+            logo_height = logo.offsetHeight;
+            document.getElementById('bond-day').style.display = 'none';
+            document.body.style.height = init_height + 'px';
+            ul.style.height = init_height - logo_height + 'px';
+            document.getElementById('fade').style.display = 'none';
+        }
+    }
+</script>
+
+<script src="JS/common.js"></script>
+
+<script>
+    // 深圳证券交易所-市场总貌模块
+    ssebond_day_btn = document.getElementById("ssebond-day-button");
+    // 上海证券交易所-每日概况
+    ssedeal_day_btn = document.getElementById("ssedeal-day-button");
+    // 市场总貌
+    general_picture_btn = document.getElementById("general-picture-button");
+
+    ssebond_day_btn.onclick = function() {
+        let ssebond_day_input_year = document.getElementById("ssebond-day-input-year");
+        let ssebond_day_input_month = document.getElementById("ssebond-day-input-month");
+        let ssebond_day_input_day = document.getElementById("ssebond-day-input-day");
+        let year = ssebond_day_input_year.value.toString();
+        let month = ssebond_day_input_month.value.toString();
+        let day = ssebond_day_input_day.value.toString();
+        let btndate = year + month + day;
+        request_sse_bond_day_data(btndate);
+    }
+
+    ssedeal_day_btn.onclick = function() {
+        let ssedeal_day_input_year = document.getElementById("ssedeal-day-input-year");
+        let ssedeal_day_input_month = document.getElementById("ssedeal-day-input-month");
+        let ssedeal_day_input_day = document.getElementById("ssedeal-day-input-day");
+        let year = ssedeal_day_input_year.value.toString();
+        let month = ssedeal_day_input_month.value.toString();
+        let day = ssedeal_day_input_day.value.toString();
+        let btndate = year + month + day;
+        request_sse_deal_day_data(btndate);
+    }
+
+    general_picture_btn.onclick = function() {
+        let general_picture_input_year = document.getElementById("general-picture-input-year");
+        let general_picture_input_month = document.getElementById("general-picture-input-month");
+        let general_picture_input_day = document.getElementById("general-picture-input-day");
+        let year = general_picture_input_year.value.toString();
+        let month = general_picture_input_month.value.toString();
+        let day = general_picture_input_day.value.toString();
+        let btndate = year + month + day;
+        request_general_picture_data(btndate);
+    }
+
+    window.onload = function() {
+        var date = new Date();
+        // 获取前一天时间
+        date.setTime(date.getTime() - (24 * 60 * 60 * 1000) * 4)
+        var year = (date.getFullYear()).toString();
+        var month = (date.getMonth() + 1).toString();
+        var day = (date.getDate()).toString();
+        if (month.length === 1)
+            month = '0' + month;
+        if (day.length === 1)
+            day = '0' + day;
+        var strdate = year + month + day;
+        console.log(strdate);
+        request_sse_bond_day_data(strdate);
+        request_sse_deal_day_data(strdate);
+        request_general_picture_data(strdate);
+        request_sse_index();
+        request_motion_index('上证综指');
+    }
+</script>
+
+<script>
+</script>
+
+</html>

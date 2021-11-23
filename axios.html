@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script crossorigin="anonymous" src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.1/axios.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>axios 发送ajax请求</title>
+</head>
+
+<body>
+    <button id="request-data">通用型方法ajax</button>
+    <div class="pure-table" id="table-div"></div>
+</body>
+<script>
+    const btns = document.querySelectorAll('button');
+    // 配置baseURL
+    axios.defaults.baseURL = 'http://localhost:5000'
+
+    btns[0].onclick = function() {
+        // post请求
+        axios({
+            // 请求方法
+            method: 'POST',
+            // url
+            url: '/axios',
+            // url参数
+            params: {
+                vip: 10,
+                level: 20
+            },
+            // 头信息
+            headers: {
+                a: 100,
+                b: 100
+            },
+            // 请求体参数
+            data: {
+                username: 'admin',
+                password: 'root'
+            }
+        }).then(response => {
+            var btn = document.getElementById("request-data");
+            var oDiv = document.getElementById("table-div");
+            if (oDiv.hasChildNodes())
+                oDiv.removeChild(oDiv.firstChild)
+            var tab = document.createElement("table");
+            oDiv.appendChild(tab);
+            var thead = document.createElement("thead");
+            var field = [];
+            for (i in response.data) {
+                var td = document.createElement("td");
+                td.innerHTML = i;
+                thead.appendChild(td);
+                field.push(i);
+            }
+            tab.appendChild(thead);
+            var json_length = Object.keys(response.data[field[0]]).length;
+            console.log(json_length)
+            for (let i = 0; i < json_length; i++) {
+                var tr = document.createElement("tr");
+                for (let j = 0; j < field.length; j++) {
+                    var td = document.createElement("td");
+                    let td_data = response.data[field[j]][i];
+                    if (Object.is(td_data, null)) {
+                        td.innerHTML = "暂无数据";
+                    } else {
+                        td.innerHTML = td_data;
+                    }
+                    tr.appendChild(td);
+                }
+                tab.appendChild(tr);
+            }
+        })
+    }
+</script>
+
+</html>

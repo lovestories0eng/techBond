@@ -1,0 +1,53 @@
+.bond-predict {
+    position: relative;
+    left: 114px;
+    overflow: hidden;
+}
+
+.bond-predict h2,
+h3 {
+    margin-top: 30px;
+    margin-left: 30px;
+}
+
+h4 {
+    display: inline-block;
+}
+
+.formula {
+    margin-left: 30px;
+    margin-top: 20px
+}
+
+.data-cal {
+    position: relative;
+    display: inline-block;
+    position: relative;
+    margin-top: 20px;
+    left: 144px;
+}
+
+.data-cal .flow-bond p {
+    display: block;
+    position: relative;
+    margin-top: 10px;
+}
+
+.data-cal .data-input {
+    float: left;
+}
+
+.data-cal .data-input input,
+button {
+    width: 80px;
+}
+
+#netvalue {
+    margin: 10px;
+    position: relative;
+    display: inline-block;
+    border: 1px solid #089;
+    left: 50px;
+    height: 300px;
+    width: 850px;
+}
